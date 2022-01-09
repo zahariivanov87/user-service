@@ -1,0 +1,21 @@
+version: "3"
+services:
+  users:
+    build:
+      context: .
+    depends_on:
+      - cockroachdb
+    environment:
+      DB_CONNECT_STRING: "postgresql://root@cockroachdb:26257/defaultdb?sslmode=disable"
+      LOG_LEVEL: "debug"
+    ports:
+      - 8080:8080
+
+
+  cockroachdb:
+    image: "cockroachdb/cockroach:v20.1.8"
+    entrypoint: ""
+    command: sh -c "(/cockroach/cockroach.sh start --insecure --vmodule=executor=2)"
+    ports:
+      - 26257:26257
+

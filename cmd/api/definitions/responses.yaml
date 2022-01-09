@@ -1,7 +1,0 @@
----
-Success:
-  description: The request has succeeded.
-BadRequest:
-  description: Invalid request.
-InternalServerError:
-  description: Internal server error. If appropriate please retry after a few seconds.
